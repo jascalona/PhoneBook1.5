@@ -1,6 +1,7 @@
 package phonebook;
 
 import Conn_db.Conexion;
+import phonebook.EditSU;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -43,7 +44,6 @@ public class Interface_III extends javax.swing.JFrame {
 
         btn_agg1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Pantalla = new javax.swing.JPanel();
         jBuscar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -54,6 +54,8 @@ public class Interface_III extends javax.swing.JFrame {
         btn_agg = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
+        btn_edit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         btn_agg1.setBackground(new java.awt.Color(0, 0, 51));
         btn_agg1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -65,9 +67,6 @@ public class Interface_III extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/table.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 610));
 
         Pantalla.setBackground(new java.awt.Color(252, 249, 249));
 
@@ -181,6 +180,23 @@ public class Interface_III extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Tabla);
 
+        btn_edit.setBackground(new java.awt.Color(255, 204, 204));
+        btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
+        btn_edit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_editMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_editMouseExited(evt);
+            }
+        });
+        btn_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PantallaLayout = new javax.swing.GroupLayout(Pantalla);
         Pantalla.setLayout(PantallaLayout);
         PantallaLayout.setHorizontalGroup(
@@ -194,11 +210,11 @@ public class Interface_III extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PantallaLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaLayout.createSequentialGroup()
-                                .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PantallaLayout.createSequentialGroup()
+                                .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_agg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaLayout.createSequentialGroup()
+                            .addGroup(PantallaLayout.createSequentialGroup()
                                 .addComponent(btn_log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -207,21 +223,25 @@ public class Interface_III extends javax.swing.JFrame {
             .addGroup(PantallaLayout.createSequentialGroup()
                 .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PantallaLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PantallaLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PantallaLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PantallaLayout.createSequentialGroup()
+                                .addComponent(btn_volver)
+                                .addGap(91, 91, 91)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PantallaLayout.setVerticalGroup(
             PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_volver))
                 .addGap(18, 18, 18)
                 .addComponent(jBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -229,7 +249,7 @@ public class Interface_III extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PantallaLayout.createSequentialGroup()
-                        .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
@@ -242,6 +262,9 @@ public class Interface_III extends javax.swing.JFrame {
         );
 
         jPanel1.add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 370, 480));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/table.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -350,6 +373,21 @@ public class Interface_III extends javax.swing.JFrame {
         // Salida de Hover
         btn_agg.setBackground(new Color(255,204,204,204));
     }//GEN-LAST:event_btn_aggMouseExited
+
+    private void btn_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editMouseEntered
+        // Efecto Hover
+        btn_edit.setBackground(new Color(210,127,127));
+    }//GEN-LAST:event_btn_editMouseEntered
+
+    private void btn_editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editMouseExited
+        // Salida de Hover
+        btn_edit.setBackground(new Color(255,204,204,204));
+    }//GEN-LAST:event_btn_editMouseExited
+
+    private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
+        // btn Edit
+        modificar();
+    }//GEN-LAST:event_btn_editActionPerformed
 
     /**
      * @param args the command line arguments
@@ -474,9 +512,27 @@ public class Interface_III extends javax.swing.JFrame {
         }
     }
     
+    //Edit
+    public void modificar(){
+        int rowE =Tabla.getSelectedRow();
+            if(rowE>=0){
+                EditSU ESU=new EditSU();
+                ESU.setVisible(true);
+                this.setVisible(false);
+                
+               //Import datos EditSU 
+               ESU.setModification1(Tabla.getValueAt(rowE,1).toString());
+               ESU.setModification2(Tabla.getValueAt(rowE,2).toString());
+               ESU.setModification3((Tabla.getValueAt(rowE,3).toString()));
+               ESU.setModification4((Tabla.getValueAt(rowE,4).toString()));
+
+            } else{
+                JOptionPane.showMessageDialog(null, "Selecione almenos un Registro");
+            }
+    }
     
     
-    //Metodo Drop
+    //Drop
     public void dropDt(){
         try {
         
@@ -512,6 +568,7 @@ public class Interface_III extends javax.swing.JFrame {
     private javax.swing.JButton btn_agg;
     private javax.swing.JButton btn_agg1;
     private javax.swing.JButton btn_drop;
+    private javax.swing.JButton btn_edit;
     private javax.swing.JButton btn_log_out;
     private javax.swing.JButton btn_volver;
     private javax.swing.JTextField jBuscar;
