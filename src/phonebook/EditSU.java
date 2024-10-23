@@ -1,13 +1,14 @@
 package phonebook;
 
+import Conn_db.Conexion;
 import java.sql.*;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Conn_db.Conexion;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import phonebook.Interface_III;
+
 
 /**
  *
@@ -22,6 +23,9 @@ public class EditSU extends javax.swing.JFrame {
     Statement st;
     ResultSet rs;
     DefaultTableModel modelo;
+    PreparedStatement ps;
+    
+    private String id;
     
     private String colum1;
     
@@ -30,6 +34,11 @@ public class EditSU extends javax.swing.JFrame {
     private String colum3;
     
     private String colum4;
+    
+    public void SetModificationid(String id){
+        this.id = id;
+        Uid.setText(id);
+    }
     
     public void setModification1(String colum1){
         this.colum1 = colum1;
@@ -51,6 +60,24 @@ public class EditSU extends javax.swing.JFrame {
         Uroll.setSelectedItem(colum4);
     }
     
+    public void UpdateSU(){
+        
+        try {
+            
+            Conn = cn.conectar();
+            PreparedStatement ps=Conn.prepareStatement("UPDATE log_phone SET name='"+Uname.getText()+"',surname='"+Usurname.getText()+"',password='"+Upass.getText()+"',roll='"+Uroll.getSelectedItem()+"' WHERE id='"+Uid.getText()+"'");
+            
+            ps.executeUpdate();
+            Interface_III inter_iii =new Interface_III();
+            inter_iii.setVisible(true);
+            this.setVisible(false);
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
     
     public EditSU() {
         initComponents();
@@ -72,6 +99,7 @@ public class EditSU extends javax.swing.JFrame {
         Pantalla = new javax.swing.JPanel();
         btn_edit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        Uid = new javax.swing.JTextField();
         Uname = new javax.swing.JTextField();
         Usurname = new javax.swing.JTextField();
         Upass = new javax.swing.JTextField();
@@ -114,6 +142,15 @@ public class EditSU extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(227, 184, 184));
+
+        Uid.setBackground(new java.awt.Color(250, 237, 237));
+        Uid.setForeground(new java.awt.Color(51, 51, 51));
+        Uid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        Uid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UidActionPerformed(evt);
+            }
+        });
 
         Uname.setBackground(new java.awt.Color(250, 237, 237));
         Uname.setForeground(new java.awt.Color(51, 51, 51));
@@ -169,22 +206,29 @@ public class EditSU extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Upass, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addComponent(Usurname, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addComponent(Uname, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Uroll, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Upass, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(Usurname, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(Uname, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Uroll, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(Uid, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(14, 14, 14)
+                .addComponent(Uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Uname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +244,7 @@ public class EditSU extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(Uroll, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+                .addGap(14, 14, 14))
         );
 
         btn_volver.setBackground(new java.awt.Color(255, 204, 204));
@@ -290,6 +334,7 @@ public class EditSU extends javax.swing.JFrame {
 
     private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
         // btn_editar_registro
+        UpdateSU();
         
     }//GEN-LAST:event_btn_editActionPerformed
 
@@ -335,6 +380,10 @@ public class EditSU extends javax.swing.JFrame {
         // Salida de Efecto HOVER:
         btn_volver.setBackground(new Color(255,204,204));
     }//GEN-LAST:event_btn_volverMouseExited
+
+    private void UidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UidActionPerformed
 
     /**
      * @param args the command line arguments
@@ -441,6 +490,7 @@ public class EditSU extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Footer;
     private javax.swing.JPanel Pantalla;
+    private javax.swing.JTextField Uid;
     private javax.swing.JTextField Uname;
     private javax.swing.JTextField Upass;
     private javax.swing.JComboBox<String> Uroll;

@@ -44,6 +44,7 @@ public class Interface_III extends javax.swing.JFrame {
 
         btn_agg1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         Pantalla = new javax.swing.JPanel();
         jBuscar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -55,7 +56,6 @@ public class Interface_III extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         btn_edit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         btn_agg1.setBackground(new java.awt.Color(0, 0, 51));
         btn_agg1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -68,9 +68,12 @@ public class Interface_III extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/table.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 610));
+
         Pantalla.setBackground(new java.awt.Color(252, 249, 249));
 
-        jBuscar.setBackground(new java.awt.Color(102, 102, 102));
+        jBuscar.setBackground(new java.awt.Color(250, 237, 237));
         jBuscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jBuscar.setForeground(new java.awt.Color(204, 204, 204));
         jBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -262,9 +265,6 @@ public class Interface_III extends javax.swing.JFrame {
         );
 
         jPanel1.add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 370, 480));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/table.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -521,6 +521,7 @@ public class Interface_III extends javax.swing.JFrame {
                 this.setVisible(false);
                 
                //Import datos EditSU 
+               ESU.SetModificationid(Tabla.getValueAt(rowE,0).toString());
                ESU.setModification1(Tabla.getValueAt(rowE,1).toString());
                ESU.setModification2(Tabla.getValueAt(rowE,2).toString());
                ESU.setModification3((Tabla.getValueAt(rowE,3).toString()));
