@@ -48,7 +48,6 @@ public class Interface_III extends javax.swing.JFrame {
         Pantalla = new javax.swing.JPanel();
         jBuscar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        Footer = new javax.swing.JLabel();
         btn_log_out = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
         btn_drop = new javax.swing.JButton();
@@ -97,11 +96,6 @@ public class Interface_III extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Setting SU");
-
-        Footer.setBackground(new java.awt.Color(204, 204, 204));
-        Footer.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        Footer.setForeground(new java.awt.Color(204, 204, 204));
-        Footer.setText("PhoneBook © Todos los derechos reservados. XDV | Designed by JE  ");
 
         btn_log_out.setBackground(new java.awt.Color(255, 204, 204));
         btn_log_out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/log-out.png"))); // NOI18N
@@ -204,25 +198,6 @@ public class Interface_III extends javax.swing.JFrame {
         Pantalla.setLayout(PantallaLayout);
         PantallaLayout.setHorizontalGroup(
             PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaLayout.createSequentialGroup()
-                .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PantallaLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Footer)
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PantallaLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PantallaLayout.createSequentialGroup()
-                                .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_agg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PantallaLayout.createSequentialGroup()
-                                .addComponent(btn_log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(13, 13, 13)))
-                .addGap(93, 93, 93))
             .addGroup(PantallaLayout.createSequentialGroup()
                 .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PantallaLayout.createSequentialGroup()
@@ -230,13 +205,22 @@ public class Interface_III extends javax.swing.JFrame {
                         .addComponent(jBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PantallaLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PantallaLayout.createSequentialGroup()
-                                .addComponent(btn_volver)
-                                .addGap(91, 91, 91)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(252, 252, 252)
+                                .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_agg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PantallaLayout.createSequentialGroup()
+                                    .addComponent(btn_volver)
+                                    .addGap(91, 91, 91)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         PantallaLayout.setVerticalGroup(
             PantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,14 +238,12 @@ public class Interface_III extends javax.swing.JFrame {
                     .addGroup(PantallaLayout.createSequentialGroup()
                         .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(Footer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PantallaLayout.createSequentialGroup()
+                        .addComponent(btn_log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaLayout.createSequentialGroup()
                         .addComponent(btn_agg, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_drop, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel1.add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 370, 480));
@@ -528,7 +510,7 @@ public class Interface_III extends javax.swing.JFrame {
                ESU.setModification4((Tabla.getValueAt(rowE,4).toString()));
 
             } else{
-                JOptionPane.showMessageDialog(null, "Selecione almenos un Registro");
+                JOptionPane.showMessageDialog(null, "Seleccione almenos un Registro");
             }
     }
     
@@ -563,7 +545,6 @@ public class Interface_III extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Footer;
     private javax.swing.JPanel Pantalla;
     private javax.swing.JTable Tabla;
     private javax.swing.JButton btn_agg;
