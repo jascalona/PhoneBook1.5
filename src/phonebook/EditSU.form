@@ -46,7 +46,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\JEscalona\Documents\NetBeansProjects\APK\src\main\java\images\table.png"/>
+              <Image iconType="3" name="/images/table.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -353,7 +353,7 @@
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\JEscalona\Documents\NetBeansProjects\APK\src\main\java\images\volver.png"/>
+                  <Image iconType="3" name="/images/volver.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">

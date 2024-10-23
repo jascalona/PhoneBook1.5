@@ -117,7 +117,7 @@ public class EditSU extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\JEscalona\\Documents\\NetBeansProjects\\APK\\src\\main\\java\\images\\table.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/table.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 610));
 
         Pantalla.setBackground(new java.awt.Color(252, 249, 249));
@@ -250,7 +250,7 @@ public class EditSU extends javax.swing.JFrame {
         btn_volver.setBackground(new java.awt.Color(255, 204, 204));
         btn_volver.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btn_volver.setForeground(new java.awt.Color(204, 204, 204));
-        btn_volver.setIcon(new javax.swing.ImageIcon("C:\\Users\\JEscalona\\Documents\\NetBeansProjects\\APK\\src\\main\\java\\images\\volver.png")); // NOI18N
+        btn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/volver.png"))); // NOI18N
         btn_volver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_volver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
