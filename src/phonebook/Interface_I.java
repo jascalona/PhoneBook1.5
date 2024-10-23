@@ -355,35 +355,6 @@ public class Interface_I extends javax.swing.JFrame {
             }
         });
     }
-    
- 
-    //Metodo Vistas
-    
-    /*
-   void query(){
-       String sql = " SELECT *FROM p_list_phone ";
-   
-       try {
-        Conn = cn.conectar();
-        st = Conn.createStatement();
-        rs = st.executeQuery(sql);
-        Object[] arreglo = new Object[5];
-        modelo = (DefaultTableModel) Tabla.getModel();
-        while (rs.next()) {
-            arreglo [0] = rs.getString("name");
-            arreglo [1] = rs.getString("surname");
-            arreglo [2] = rs.getString("GEO");
-            arreglo [3] = rs.getString("phone");
-            arreglo [4] = rs.getString("extension");
-            
-            modelo.addRow(arreglo);
-        }
-        Tabla.setModel(modelo);
-        
-       } catch (Exception e) {
-       
-       }
-   }*/
    
 
    private void query (){
@@ -392,10 +363,10 @@ public class Interface_I extends javax.swing.JFrame {
        DefaultTableModel modelo = new DefaultTableModel();
        
        modelo.addColumn("");
-       /*modelo.addColumn("Apellido");
-       modelo.addColumn("GEO");
-       modelo.addColumn("Phone");
-       modelo.addColumn("Extension");*/
+       //modelo.addColumn("Apellido");
+       //modelo.addColumn("GEO");
+       //modelo.addColumn("Phone");
+       //modelo.addColumn("Extension");
        
        Table.setModel(modelo);
        Table.getColumnModel().getColumn(0);
@@ -404,13 +375,11 @@ public class Interface_I extends javax.swing.JFrame {
        Table.setRowHeight(50);
        Table.setEnabled(false);
        
+       //Table.getColumnModel().getColumn(1);
+       //Table.getColumnModel().getColumn(2);
+       //Table.getColumnModel().getColumn(3);
+       //Table.getColumnModel().getColumn(4);
        
-       
-       /*Table.getColumnModel().getColumn(1);
-       Table.getColumnModel().getColumn(2);
-       Table.getColumnModel().getColumn(3);
-       Table.getColumnModel().getColumn(4);
-       */
        String sql = "SELECT *FROM p_list_phone WHERE NAME LIKE '%"+busqueda+"%' OR SURNAME LIKE '%"+busqueda+"%' OR GEO LIKE '%"+busqueda+"%' OR PHONE LIKE '%"+busqueda+"%' OR EXTENSION LIKE '%"+busqueda+"%' ";
        
        String datos [] = new String[5];
@@ -422,11 +391,11 @@ public class Interface_I extends javax.swing.JFrame {
            
            while (rs.next()){
                datos [0] = ("  ").concat(rs.getString("name")).concat("  ").concat(rs.getString("surname")).concat("  ").concat(rs.getString("extension"));
-              /* datos [1] = rs.getString("surname");
-               datos [2] = rs.getString("GEO");
-               datos [3] = rs.getString("phone");
-               datos [4] = rs.getString("extension");
-               */
+               //datos [1] = rs.getString("surname");
+               //datos [2] = rs.getString("GEO");
+               //datos [3] = rs.getString("phone");
+               //datos [4] = rs.getString("extension");
+               
                modelo.addRow(datos);
            }
            
