@@ -155,14 +155,14 @@
                                   <Component id="UGEO" pref="220" max="32767" attributes="0"/>
                                   <Component id="Usurname" pref="220" max="32767" attributes="0"/>
                                   <Component id="Uname" pref="220" max="32767" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                                   <Component id="Uphone" alignment="0" pref="220" max="32767" attributes="0"/>
                                   <Component id="Uextension" alignment="0" pref="220" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel7" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="58" max="32767" attributes="0"/>
                       </Group>

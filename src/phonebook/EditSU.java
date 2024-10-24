@@ -25,6 +25,7 @@ public class EditSU extends javax.swing.JFrame {
     DefaultTableModel modelo;
     PreparedStatement ps;
     
+    
     private String id;
     
     private String colum1;
@@ -81,6 +82,7 @@ public class EditSU extends javax.swing.JFrame {
     
     public EditSU() {
         initComponents();
+        Uid.setVisible(false);
         setIconImage(new ImageIcon(getClass().getResource("/images/1-ISOTIPO XDV pequeño.png")).getImage());
         setLocationRelativeTo(null);
     }
@@ -381,7 +383,7 @@ public class EditSU extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_volverMouseExited
 
     private void UidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UidActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_UidActionPerformed
 
     /**

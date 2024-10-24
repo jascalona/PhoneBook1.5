@@ -422,7 +422,18 @@ public class Interface_II extends javax.swing.JFrame {
    private void query (){
        String busqueda = jBuscar.getText();
        
-       DefaultTableModel modelo = new DefaultTableModel();
+       DefaultTableModel modelo = new DefaultTableModel(){
+           @Override
+           public boolean isCellEditable(int row, int column) {
+               if (column==0) {
+                   return true;
+               } else {
+                    return false;
+               }
+           }
+       };
+       
+       
        modelo.addColumn("ID");
        modelo.addColumn("Nombre");
        modelo.addColumn("Apellido");

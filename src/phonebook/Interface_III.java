@@ -454,7 +454,18 @@ public class Interface_III extends javax.swing.JFrame {
     private void query(){
         String busqueda = jBuscar.getText();
         
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+           public boolean isCellEditable(int row, int column) {
+               if (column==0) {
+                   return true;
+               } else {
+                    return false;
+               }    
+           }
+        };
+        
+        
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
@@ -467,7 +478,7 @@ public class Interface_III extends javax.swing.JFrame {
         Tabla.getColumnModel().getColumn(2);
         Tabla.getColumnModel().getColumn(3);
         Tabla.getColumnModel().getColumn(4);
-    
+            
        String sql = "SELECT *FROM log_phone WHERE NAME LIKE '%"+busqueda+"%' OR SURNAME LIKE '%"+busqueda+"%' OR ROLL LIKE '%"+busqueda+"%' ";
         
         String datos [] = new String [5];
